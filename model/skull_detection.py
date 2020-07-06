@@ -9,8 +9,7 @@ headers = {
     'Prediction-key': 'a40f5cb7ec74433d90a94820a38eb35f',
 }
 
-def detect(img, conf, config):
-    model_version = config.get("SKULL", "model_version")
+def detect(img, conf, model_version):
     data = request_detection(img, model_version)
     boxes = interpret_result(data, conf)
     return boxes
