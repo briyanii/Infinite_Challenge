@@ -6,7 +6,7 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
-LOG_FORMAT = '%(asctime)s %(module)s [%(levelname)s] - %(message)s'
+LOG_FORMAT = '%(asctime)s %(module)s:%(funcName) [%(levelname)s] - %(message)s'
 
 # Initialise strings from config file
 config = configparser.ConfigParser()
@@ -71,3 +71,4 @@ def upload_file(file_name, bucket, object_name=None):
 if __name__ == '__main__':
     #Testing upload function
     #upload_file('2020Y_07_04LOG_2020Y_07_04_17_33_41.log', 's3infchallenge')
+    pass
