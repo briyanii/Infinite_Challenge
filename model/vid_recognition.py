@@ -3,8 +3,7 @@ import argparse
 import os
 import re
 import cv2
-
-import skull_detection as sd
+import model.skull_detection as sd
 from logger.base_logger import logger
 
 
