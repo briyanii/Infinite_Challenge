@@ -1,4 +1,3 @@
-import argparse
 import http.client
 import json
 from logger.base_logger import logger
@@ -48,9 +47,13 @@ def xywh_to_yxyx(orig_box):
     y2 = y1 + orig_box[3]
     return [y1, x1, y2, x2]
 
+
 if __name__ == "__main__":
+    import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--input", required=True, type=str, help="path to image")
+    ap.add_argument("-c", "--input", required=True, type=float, help="confidence threshold")
+    ap.add_argument("-m", "--model_version", required=True, type=str, help="model version")
     arg = vars(ap.parse_args())
-    boxes = detect(arg['input'])
+    boxes = detect(arg['input'], arg['confidence'], arg['model_version'])
     print(boxes)
